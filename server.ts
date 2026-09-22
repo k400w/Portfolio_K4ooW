@@ -5,7 +5,8 @@ import compression from 'compression';
 import { createServer as createViteServer } from 'vite';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+
 
 // Enable gzip/brotli compression for all text/json/js/css responses
 app.use(compression());
